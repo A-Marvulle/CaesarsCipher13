@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Conversor</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-7 col-12 p-2">
+        <div class="border rounded m-3 p-2">
+          <h1>Cifra de Cesar</h1>
+          <input type="text" id="numero" placeholder="Digite uma frase codificada" class="mt-sm-2 w-100 m-1">
+          <button onclick="rot13()" class="btn btn-outline-success mt-sm-2 w-100 m-1">Converter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="result" class="row justify-content-center"></div>
+  <div class="row justify-content-center text-center">
+    <table class="table-bordered w-25">
+        <thead>
+            <th colspan="2">Guide</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Normal</th>
+                <th>Cifra 13</th>
+            </tr>
+            <tr>
+                <td>A</td>
+                <td>N</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>O</td>
+            </tr>
+            <tr>
+                <td>C</td>
+                <td>P</td>
+            </tr>
+            <tr>
+                <td>D</td>
+                <td>Q</td>
+            </tr>
+            <tr>
+                <td>E</td>
+                <td>R</td>
+            </tr>
+            <tr>
+                <td>F</td>
+                <td>S</td>
+            </tr>
+            <tr>
+                <td>G</td>
+                <td>T</td>
+            </tr>
+            <tr>
+                <td>H</td>
+                <td>U</td>
+            </tr>
+            <tr>
+                <td>I</td>
+                <td>V</td>
+            </tr>
+            <tr>
+                <td>J</td>
+                <td>W</td>
+            </tr>
+            <tr>
+                <td>K</td>
+                <td>X</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>Y</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>Z</td>
+            </tr>
+            <tr>
+                <td>N</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>O</td>
+                <td>B</td>
+            </tr>
+            <tr>
+                <td>P</td>
+                <td>C</td>
+            </tr>
+            <tr>
+                <td>Q</td>
+                <td>D</td>
+            </tr>
+            <tr>
+                <td>R</td>
+                <td>E</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>F</td>
+            </tr>
+            <tr>
+                <td>T</td>
+                <td>G</td>
+            </tr>
+            <tr>
+                <td>U</td>
+                <td>H</td>
+            </tr>
+            <tr>
+                <td>V</td>
+                <td>I</td>
+            </tr>
+            <tr>
+                <td>W</td>
+                <td>J</td>
+            </tr>
+            <tr>
+                <td>X</td>
+                <td>K</td>
+            </tr>
+            <tr>
+                <td>Y</td>
+                <td>L</td>
+            </tr>
+            <tr>
+                <td>Z</td>
+                <td>M</td>
+            </tr>
+        </tbody>
+    </table>
+    
+  </div>
+
+  <script>
+    function rot13() {
+        // Pega o valor do input
+        let inputElement = document.getElementById('numero');
+        let inputValue = inputElement.value;
+
+        // Aplica a lógica rot13
+        let decodedStr = inputValue.replace(/[A-Z]/g, function (char) {
+            return String.fromCharCode(((char.charCodeAt(0) - 65 + 13) % 26) + 65);
+        });
+
+        // Mostra o resultado na div
+        let resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = '<p>' + decodedStr + '</p>';
+    }
+  </script>
+
+</body>
+</html>
